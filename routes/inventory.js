@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Inventory } = require('../models/inventory');
+const { Inventory, Ledger } = require('../models/index');
 
 // List all items
 router.get('/', async (req, res) => {
@@ -16,7 +16,16 @@ router.get('/add', (req, res) => {
 // Add a new item
 router.post('/add', async (req, res) => {
     const { name, quantity, price, description } = req.body;
-    await Inventory.create({ name, quantity, price, description });
+    const item = await Inventory.create({ name, quantity, price, description });
+
+    // Create a ledger entry for the debit
+    await Ledger.create({
+        type: 'debit',
+        itemId: item.id,
+        quantity,
+        amount: price * quantity
+    });
+
     res.redirect('/');
 });
 

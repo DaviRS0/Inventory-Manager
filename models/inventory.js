@@ -33,7 +33,7 @@ const Inventory = sequelize.define('Inventory', {
         allowNull: true
     }
 }, {
-    tableName: 'inventory' // Specify the table name explicitly
+    tableName: 'inventory'
 });
 
 module.exports = { Inventory, sequelize };

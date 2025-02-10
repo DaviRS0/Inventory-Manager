@@ -11,7 +11,7 @@ const Sale = sequelize.define('Sale', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'inventory', // Reference the inventory table
+            model: 'inventory',
             key: 'id'
         }
     },
@@ -33,7 +33,7 @@ const Sale = sequelize.define('Sale', {
         defaultValue: Sequelize.NOW
     }
 }, {
-    tableName: 'sales' // Specify the table name explicitly
+    tableName: 'sales'
 });
 
 module.exports = { Sale };

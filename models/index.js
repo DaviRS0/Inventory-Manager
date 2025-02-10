@@ -27,7 +27,7 @@ const Inventory = sequelize.define('Inventory', {
         allowNull: true
     }
 }, {
-    tableName: 'inventory' // Specify the table name explicitly
+    tableName: 'inventory'
 });
 
 const Sale = sequelize.define('Sale', {
@@ -40,7 +40,7 @@ const Sale = sequelize.define('Sale', {
         type: DataTypes.INTEGER,
         allowNull: false,
         references: {
-            model: 'inventory', // Reference the inventory table
+            model: 'inventory',
             key: 'id'
         }
     },
@@ -62,7 +62,7 @@ const Sale = sequelize.define('Sale', {
         defaultValue: Sequelize.NOW
     }
 }, {
-    tableName: 'sales' // Specify the table name explicitly
+    tableName: 'sales'
 });
 
 const Ledger = sequelize.define('Ledger', {

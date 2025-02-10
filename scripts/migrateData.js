@@ -1,6 +1,6 @@
 require('dotenv').config();
 const xlsx = require('xlsx');
-const { Inventory, sequelize } = require('../models/inventory');
+const { Inventory, sequelize } = require('../models/index'); // Correct import
 const path = require('path');
 
 async function migrateData() {

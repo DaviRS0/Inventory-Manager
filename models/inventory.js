@@ -32,6 +32,8 @@ const Inventory = sequelize.define('Inventory', {
         type: DataTypes.STRING,
         allowNull: true
     }
+}, {
+    tableName: 'inventory' // Specify the table name explicitly
 });
 
 module.exports = { Inventory, sequelize };

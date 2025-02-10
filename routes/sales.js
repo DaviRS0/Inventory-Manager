@@ -16,7 +16,7 @@ router.get('/', async (req, res) => {
 // Render Sell Item page
 router.get('/sell', async (req, res) => {
     const items = await Inventory.findAll();
-    res.render('sell', { items });
+    res.render('sell', { items, errorMessage: null });
 });
 
 // Sell an item
@@ -31,7 +31,8 @@ router.post('/sell', async (req, res) => {
     console.log(`Item Quantity: ${item.quantity}, Quantity Sold: ${quantitySoldInt}`);
 
     if (item.quantity < quantitySoldInt) {
-        return res.status(400).send('Not enough stock available');
+        const items = await Inventory.findAll();
+        return res.render('sell', { items, errorMessage: 'Not enough stock available' });
     }
 
     const pricePerItem = item.price;

@@ -8,6 +8,9 @@ This project is an Inventory Management System built using Node.js, Express, Seq
 - Add a new inventory item
 - Edit an existing inventory item
 - Delete an inventory item
+- Sell an inventory item
+- View sales transactions
+- View ledger report
 
 ## Technologies Used
 
@@ -33,12 +36,12 @@ This project is an Inventory Management System built using Node.js, Express, Seq
    cd inventory-management-system
    ```
 
-2. Install dependecies:
+2. Install dependencies:
    ```sh
    npm install
    ```
 
-3. Create a .env file in the reoot directory with your PostgresSQL database URL:
+3. Create a .env file in the root directory with your PostgreSQL database URL:
    ```sh
    DATABASE_URL=postgresql://user:password@host/dbname?sslmode=require
    ```
@@ -47,10 +50,24 @@ This project is an Inventory Management System built using Node.js, Express, Seq
    ```sh
    node scripts/migrateData.js
    ```
+
 5. Start the application:
    ```sh
    node app.js
    ```
 
-6. Open your web browse and navigate to https://localhost:3000.
-   
+6. Open your web browser and navigate to http://localhost:3000.
+
+### Usage
+
+- **Add Item**: Navigate to the "Add Item" page to add a new inventory item.
+- **Edit Item**: Click the "Edit" button next to an item to edit its details.
+- **Delete Item**: Click the "Delete" button next to an item to remove it from the inventory.
+- **Sell Item**: Click the "Sell Item" button at the top to sell an inventory item.
+- **View Sales**: Click the "View Sales" button at the top to view all sales transactions.
+- **View Ledger**: Click the "View Ledger" button at the top to view the ledger report.
+
+### Additional Information
+
+- **Sell Item**: When selling an item, if there is not enough stock available, a red error message will be displayed under the "Quantity Sold" input field.
+- **Ledger Report**: The ledger report includes debit entries when items are added and credit entries when items are sold. The balance reflects the value of the remaining stock.

@@ -1,3 +1,6 @@
+## Name: Davi de Rezende Sobral
+## Student number: 8944633
+
 # Inventory Management System
 
 This project is an Inventory Management System built using Node.js, Express, Sequelize, and PostgreSQL. It allows users to manage inventory items through a web interface.
